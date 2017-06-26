@@ -40,7 +40,8 @@ function parseRequest(req)
 {
     var parsedRequest = {
         body:       '',
-        channel:    url.parse(req.url, true).query.channel
+        channel:    url.parse(req.url, true).query.channel,
+        type:       url.parse(req.url, true).query.type
     };
 
     req.on('data', function (chunk) { parsedRequest.body += chunk; });
