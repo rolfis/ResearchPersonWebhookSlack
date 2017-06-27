@@ -70,13 +70,13 @@ function trParseBody(body)
 function getSlackUserName(parsedBody, type)
 {
     return (
-        (type.toLowerCase() == 'updated' ? 'Updated: ' : 'Created: ') + parsedBody.DisplayName
+        parsedBody.DisplayName
     );
 }
 
 function getSlackText(parsedBody, type)
 {
     return (
-        '>>> ' + parsedBody.Id + ' by ' + (type.toLowerCase() == 'updated' ? parsedBody.UpdatedBy : parsedBody.CreatedBy)
+        '>>> ' + parsedBody.Id + type.toLowerCase() == 'updated' ? ' updated by ' : ' created by ' + (type.toLowerCase() == 'updated' ? parsedBody.UpdatedBy : parsedBody.CreatedBy)
     );
 }
